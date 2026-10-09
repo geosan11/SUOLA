@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Suola Logistics | Flight Bookings, Cargo & Airport Services | MM2 Lagos</title>
+  <meta name="description" content="Suola Logistics – Expert flight ticketing, cargo logistics, car hiring, hotel reservations and airport services at MM2 Local Airport, Lagos. Book with Dolapo Adeniyi's team.">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+    body { font-family: 'Inter', system_ui, sans-serif; }
+    .gradient-bg { background: linear-gradient(135deg, #1e1b4b 0%, #4c1d95 50%, #7c3aed 100%); }
+    .purple-accent { color: #a855f7; }
+    .btn-primary { background: linear-gradient(135deg, #7c3aed, #f97316); transition: all 0.3s; }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 10px 25px rgba(124, 58, 237, 0.4); }
+    .service-card:hover { transform: translateY(-8px); }
+    .form-input:focus { border-color: #a855f7; ring: 2px solid #a855f7; }
+    .tab-active { background: #7c3aed; color: white; }
+  </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+  <!-- Header -->
+  <header class="bg-white shadow-md sticky top-0 z-50">
+    <div class="container mx-auto px-4 py-3 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <img src="logo.jpg" alt="Suola Logistics Logo" class="h-12 w-auto object-contain">
+        <div>
+          <h1 class="text-xl font-bold tracking-tight">SUOLA <span class="text-purple-600">LOGISTICS</span></h1>
+          <p class="text-xs text-gray-500">MM2 Airport • Lagos</p>
+        </div>
+      </div>
+      <nav class="hidden md:flex gap-6 text-sm font-medium">
+        <a href="#home" class="hover:text-purple-600">Home</a>
+        <a href="#book" class="hover:text-purple-600">Book Now</a>
+        <a href="#services" class="hover:text-purple-600">Services</a>
+        <a href="#about" class="hover:text-purple-600">About</a>
+        <a href="#contact" class="hover:text-purple-600">Contact</a>
+      </nav>
+      <a href="https://wa.me/2347026518719" target="_blank" class="bg-green-500 text-white px-4 py-2 rounded-full text-sm font-semibold hover:bg-green-600 flex items-center gap-2">
+        <i class="fab fa-whatsapp"></i> WhatsApp
+      </a>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section id="home" class="gradient-bg text-white py-16 md:py-24 relative overflow-hidden">
+    <div class="absolute inset-0 opacity-20">
+      <img src="airport.jpg" alt="Airport" class="w-full h-full object-cover">
+    </div>
+    <div class="container mx-auto px-4 relative z-10 text-center">
+      <h2 class="text-4xl md:text-6xl font-extrabold mb-4 leading-tight">Your Trusted Partner for <span class="text-orange-300">Flights & Logistics</span></h2>
+      <p class="text-lg md:text-xl max-w-3xl mx-auto mb-8 opacity-90">Flight ticketing, cargo handling, car hiring, hotel reservations & full airport services right at MM2 Local Airport, Lagos.</p>
+      <div class="flex flex-wrap justify-center gap-4">
+        <a href="#book" class="btn-primary text-white px-8 py-4 rounded-full font-bold text-lg">Book a Flight</a>
+        <a href="#services" class="bg-white/20 backdrop-blur border border-white/30 px-8 py-4 rounded-full font-semibold hover:bg-white/30">Our Services</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Quick Stats -->
+  <section class="bg-white py-8 border-b">
+    <div class="container mx-auto px-4 grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+      <div><div class="text-3xl font-bold text-purple-600">24/7</div><div class="text-sm text-gray-600">Airport Support</div></div>
+      <div><div class="text-3xl font-bold text-purple-600">Fast</div><div class="text-sm text-gray-600">Flight Ticketing</div></div>
+      <div><div class="text-3xl font-bold text-purple-600">Secure</div><div class="text-sm text-gray-600">Cargo Handling</div></div>
+      <div><div class="text-3xl font-bold text-purple-600">MM2</div><div class="text-sm text-gray-600">Local Airport</div></div>
+    </div>
+  </section>
+
+  <!-- Booking Section -->
+  <section id="book" class="py-16 bg-gray-50">
+    <div class="container mx-auto px-4">
+      <h2 class="text-3xl md:text-4xl font-bold text-center mb-2">Book Your Service</h2>
+      <p class="text-center text-gray-600 mb-10">Quick booking forms – we’ll respond promptly via phone, WhatsApp or email.</p>
+
+      <!-- Tabs -->
+      <div class="flex flex-wrap justify-center gap-2 mb-8">
+        <button onclick="showTab('flight')" id="tab-flight" class="tab-btn px-6 py-3 rounded-full font-semibold tab-active">✈️ Flight Ticketing</button>
+        <button onclick="showTab('cargo')" id="tab-cargo" class="tab-btn px-6 py-3 rounded-full font-semibold bg-white border">📦 Cargo / Logistics</button>
+        <button onclick="showTab('car')" id="tab-car" class="tab-btn px-6 py-3 rounded-full font-semibold bg-white border">🚗 Car Hiring</button>
+        <button onclick="showTab('hotel')" id="tab-hotel" class="tab-btn px-6 py-3 rounded-full font-semibold bg-white border">🏨 Hotel Reservation</button>
+      </div>
+
+      <!-- Flight Form -->
+      <div id="form-flight" class="form-panel max-w-4xl mx-auto bg-white p-8 rounded-2xl shadow-xl">
+        <h3 class="text-2xl font-bold mb-6 text-purple-700">Flight Booking Request</h3>
+        <form onsubmit="handleSubmit(event, 'Flight')">
+          <div class="grid md:grid-cols-2 gap-4">
+            <div>
+              <label class="block text-sm font-medium mb-1">From</label>
+              <input type="text" required placeholder="e.g. Lagos (LOS)" class="form-input w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-purple-500">
+            </div>
+            <div>
+              <label class="block text-sm font-medium mb-1">To</label>
+              <input type="text" required placeholder="e.g. Abuja (ABV)" class="form-input w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-purple-500">
+            </div>
+            <div>
+              <label class="block text-sm font-medium mb-1">Departure Date</label>
+              <input type="date" required class="form-input w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-purple-500">
+            </div>
+            <div>
+              <label class="block text-sm font-medium mb-1">Return Date (optional)</label>
+              <input type="date" class="form-input w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-purple-500">
+            </div>
+            <div>
+              <label class="block text-sm font-medium mb-1">Passengers</label>
+              <select class="form-input w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-purple-500">
+                <option>1 Adult</option>
+                <option>2 Adults</option>
+                <option>3 Adults</option>
+                <option>4+ Adults</option>
+                <option>Family (with children)</option>
+              </select>
+            </div>
+            <div>
+              <label class="block text-sm font-medium mb-1">Class</label>
+              <select class="form-input w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-purple-500">
+                <option>Economy</option>
+                <option>Premium Economy</option>
+                <option>Business</option>
+                <option>First Class</option>
+              </select>
+            </div>
+          </div>
+          <div class="mt-4">
+            <label class="block text-sm font-medium mb-1">Full Name</label>
+            <input type="text" required class="form-input w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-purple-500">
+          </div>
+          <div class="grid md:grid-cols-2 gap-4 mt-4">
+            <div>
+              <label class="block text-sm font-medium mb-1">Phone</label>
+              <input type="tel" required placeholder="080xxxxxxxx" class="form-input w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-purple-500">
+            </div>
+            <div>
+              <label class="block text-sm font-medium mb-1">Email</label>
+              <input type="email" required class="form-input w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-purple-500">
+            </div>
+          </div>
+          <div class="mt-4">
+            <label class="block text-sm font-medium mb-1">Special Requests</label>
+            <textarea rows="3" placeholder="Any preferences or notes..." class="form-input w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-purple-500"></textarea>
+          </div>
+          <button type="submit" class="btn-primary w-full mt-6 text-white py-4 rounded-xl font-bold text-lg">Request Flight Quote</button>
+        </form>
+      </div>
+
+      <!-- Cargo Form -->
+      <div id="form-cargo" class="form-panel hidden max-w-4xl mx-auto bg-white p-8 rounded-2xl shadow-xl">
+        <h3 class="text-2xl font-bold mb-6 text-purple-700">Cargo / Logistics Request</h3>
+        <form onsubmit="handleSubmit(event, 'Cargo')">
+          <div class="grid md:grid-cols-2 gap-4">
+            <div>
+              <label class="block text-sm font-medium mb-1">Origin</label>
+              <input type="text" required placeholder="City / Airport" class="form-input w-full border border-gray-300 rounded-lg px-4 py-3">
+            </div>
+            <div>
+              <label class="block text-sm font-medium mb-1">Destination</label>
+              <input type="text" required placeholder="City / Airport" class="form-input w-full border border-gray-300 rounded-lg px-4 py-3">
+            </div>
+            <div>
+              <label class="block text-sm font-medium mb-1">Approximate Weight (kg)</label>
+              <input type="number" required class="form-input w-full border border-gray-300 rounded-lg px-4 py-3">
+            </div>
+            <div>
+              <label class="block text-sm font-medium mb-1">Dimensions / Type</label>
+              <input type="text" placeholder="e.g. 3 boxes, documents, perishable" class="form-input w-full border border-gray-300 rounded-lg px-4 py-3">
+            </div>
+          </div>
+          <div class="mt-4">
+            <label class="block text-sm font-medium mb-1">Cargo Description</label>
+            <textarea rows="3" required class="form-input w-full border border-gray-300 rounded-lg px-4 py-3"></textarea>
+          </div>
+          <div class="grid md:grid-cols-2 gap-4 mt-4">
+            <input type="text" required placeholder="Your Name" class="form-input w-full border border-gray-300 rounded-lg px-4 py-3">
+            <input type="tel" required placeholder="Phone Number" class="form-input w-full border border-gray-300 rounded-lg px-4 py-3">
+          </div>
+          <button type="submit" class="btn-primary w-full mt-6 text-white py-4 rounded-xl font-bold text-lg">Request Cargo Quote</button>
+        </form>
+      </div>
+
+      <!-- Car Form -->
+      <div id="form-car" class="form-panel hidden max-w-4xl mx-auto bg-white p-8 rounded-2xl shadow-xl">
+        <h3 class="text-2xl font-bold mb-6 text-purple-700">Car Hiring Request</h3>
+        <form onsubmit="handleSubmit(event, 'Car Hire')">
+          <div class="grid md:grid-cols-2 gap-4">
+            <div>
+              <label class="block text-sm font-medium mb-1">Pickup Location</label>
+              <input type="text" required value="MM2 Local Airport" class="form-input w-full border border-gray-300 rounded-lg px-4 py-3">
+            </div>
+            <div>
+              <label class="block text-sm font-medium mb-1">Drop-off Location</label>
+              <input type="text" required placeholder="Hotel, office, etc." class="form-input w-full border border-gray-300 rounded-lg px-4 py-3">
+            </div>
+            <div>
+              <label class="block text-sm font-medium mb-1">Date & Time</label>
+              <input type="datetime-local" required class="form-input w-full border border-gray-300 rounded-lg px-4 py-3">
+            </div>
+            <div>
+              <label class="block text-sm font-medium mb-1">Vehicle Preference</label>
+              <select class="form-input w-full border border-gray-300 rounded-lg px-4 py-3">
+                <option>Sedan</option>
+                <option>SUV</option>
+                <option>Luxury</option>
+                <option>Minibus / Van</option>
+                <option>Any available</option>
+              </select>
+            </div>
+          </div>
+          <div class="grid md:grid-cols-2 gap-4 mt-4">
+            <input type="text" required placeholder="Your Name" class="form-input w-full border border-gray-300 rounded-lg px-4 py-3">
+            <input type="tel" required placeholder="Phone Number" class="form-input w-full border border-gray-300 rounded-lg px-4 py-3">
+          </div>
+          <button type="submit" class="btn-primary w-full mt-6 text-white py-4 rounded-xl font-bold text-lg">Request Car Hire</button>
+        </form>
+      </div>
+
+      <!-- Hotel Form -->
+      <div id="form-hotel" class="form-panel hidden max-w-4xl mx-auto bg-white p-8 rounded-2xl shadow-xl">
+        <h3 class="text-2xl font-bold mb-6 text-purple-700">Hotel Reservation</h3>
+        <form onsubmit="handleSubmit(event, 'Hotel')">
+          <div class="grid md:grid-cols-2 gap-4">
+            <div>
+              <label class="block text-sm font-medium mb-1">Check-in Date</label>
+              <input type="date" required class="form-input w-full border border-gray-300 rounded-lg px-4 py-3">
+            </div>
+            <div>
+              <label class="block text-sm font-medium mb-1">Check-out Date</label>
+              <input type="date" required class="form-input w-full border border-gray-300 rounded-lg px-4 py-3">
+            </div>
+            <div>
+              <label class="block text-sm font-medium mb-1">Location / Area</label>
+              <input type="text" placeholder="e.g. Ikeja, Victoria Island, near MM2" class="form-input w-full border border-gray-300 rounded-lg px-4 py-3">
+            </div>
+            <div>
+              <label class="block text-sm font-medium mb-1">Rooms / Guests</label>
+              <input type="text" placeholder="e.g. 1 room, 2 adults" class="form-input w-full border border-gray-300 rounded-lg px-4 py-3">
+            </div>
+          </div>
+          <div class="grid md:grid-cols-2 gap-4 mt-4">
+            <input type="text" required placeholder="Your Name" class="form-input w-full border border-gray-300 rounded-lg px-4 py-3">
+            <input type="tel" required placeholder="Phone Number" class="form-input w-full border border-gray-300 rounded-lg px-4 py-3">
+          </div>
+          <div class="mt-4">
+            <textarea rows="2" placeholder="Preferences (budget, star rating, etc.)" class="form-input w-full border border-gray-300 rounded-lg px-4 py-3"></textarea>
+          </div>
+          <button type="submit" class="btn-primary w-full mt-6 text-white py-4 rounded-xl font-bold text-lg">Request Hotel Booking</button>
+        </form>
+      </div>
+
+      <div id="success-message" class="hidden mt-6 max-w-4xl mx-auto bg-green-100 border border-green-400 text-green-800 px-6 py-4 rounded-xl text-center">
+        <strong>Request submitted!</strong> Our team will contact you shortly via phone or WhatsApp. Thank you for choosing Suola Logistics.
+      </div>
+    </div>
+  </section>
+
+  <!-- Services -->
+  <section id="services" class="py-16 bg-white">
+    <div class="container mx-auto px-4">
+      <h2 class="text-3xl md:text-4xl font-bold text-center mb-4">Our Services</h2>
+      <p class="text-center text-gray-600 mb-12 max-w-2xl mx-auto">Comprehensive travel and logistics solutions based at MM2 Local Airport.</p>
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div class="service-card bg-gray-50 rounded-2xl overflow-hidden shadow-lg transition duration-300">
+          <img src="airport.jpg" alt="Flight Ticketing" class="h-48 w-full object-cover">
+          <div class="p-6">
+            <h3 class="text-xl font-bold mb-2">✈️ Flight Ticketing</h3>
+            <p class="text-gray-600">Domestic and international flight bookings with competitive rates and expert support.</p>
+          </div>
+        </div>
+        <div class="service-card bg-gray-50 rounded-2xl overflow-hidden shadow-lg transition duration-300">
+          <img src="cargo.jpg" alt="Cargo Logistics" class="h-48 w-full object-cover">
+          <div class="p-6">
+            <h3 class="text-xl font-bold mb-2">📦 Cargo & Logistics</h3>
+            <p class="text-gray-600">Secure air cargo, freight forwarding and logistics solutions for businesses and individuals.</p>
+          </div>
+        </div>
+        <div class="service-card bg-gray-50 rounded-2xl overflow-hidden shadow-lg transition duration-300">
+          <img src="hotel-car.jpg" alt="Car & Hotel" class="h-48 w-full object-cover">
+          <div class="p-6">
+            <h3 class="text-xl font-bold mb-2">🚗 Car Hiring</h3>
+            <p class="text-gray-600">Airport transfers and car rentals – sedans, SUVs and luxury vehicles available.</p>
+          </div>
+        </div>
+        <div class="service-card bg-gray-50 rounded-2xl overflow-hidden shadow-lg transition duration-300">
+          <div class="h-48 bg-gradient-to-br from-purple-500 to-orange-400 flex items-center justify-center">
+            <i class="fas fa-hotel text-6xl text-white"></i>
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl font-bold mb-2">🏨 Hotel Reservation</h3>
+            <p class="text-gray-600">Partner hotel bookings across Lagos and beyond with special rates.</p>
+          </div>
+        </div>
+        <div class="service-card bg-gray-50 rounded-2xl overflow-hidden shadow-lg transition duration-300">
+          <div class="h-48 bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center">
+            <i class="fas fa-plane-departure text-6xl text-white"></i>
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl font-bold mb-2">✈️ Airport Services</h3>
+            <p class="text-gray-600">Meet & greet, check-in assistance, VIP services and more at MM2 Departure Hall.</p>
+          </div>
+        </div>
+        <div class="service-card bg-gray-50 rounded-2xl overflow-hidden shadow-lg transition duration-300">
+          <div class="h-48 bg-gradient-to-br from-orange-400 to-red-500 flex items-center justify-center">
+            <i class="fas fa-headset text-6xl text-white"></i>
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl font-bold mb-2">📞 24/7 Support</h3>
+            <p class="text-gray-600">Dedicated team ready to assist with all your travel and logistics needs.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section id="about" class="py-16 bg-gray-50">
+    <div class="container mx-auto px-4 max-w-4xl">
+      <h2 class="text-3xl md:text-4xl font-bold text-center mb-8">About Suola Logistics</h2>
+      <div class="bg-white rounded-2xl shadow-lg p-8 md:p-12">
+        <p class="text-lg leading-relaxed mb-6">Suola Logistics is a trusted provider of aviation and logistics services based at <strong>MM2 Local Airport (Murtala Muhammed Airport Terminal 2)</strong>, First Floor, Departure Hall, Lagos.</p>
+        <p class="text-lg leading-relaxed mb-6">Led by Chief Executive Officer <strong>Dolapo Adeniyi</strong>, we specialize in making travel and cargo movement seamless for individuals and businesses. From flight ticketing to full airport support, cargo handling, car hiring and hotel reservations — we handle it all.</p>
+        <p class="text-lg leading-relaxed">Visit us at the airport or contact us anytime. We’re committed to reliable, professional service that gets you and your goods where they need to go.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="py-16 bg-white">
+    <div class="container mx-auto px-4">
+      <h2 class="text-3xl md:text-4xl font-bold text-center mb-10">Contact Us</h2>
+      <div class="grid md:grid-cols-2 gap-10 max-w-5xl mx-auto">
+        <div class="bg-purple-50 rounded-2xl p-8">
+          <h3 class="text-2xl font-bold mb-6 text-purple-800">Get in Touch</h3>
+          <div class="space-y-4">
+            <p class="flex items-start gap-3"><i class="fas fa-map-marker-alt text-purple-600 mt-1"></i> <span><strong>Address:</strong><br>Mm2 Local Airport<br>First Floor, Departure Hall<br>Lagos, Nigeria</span></p>
+            <p class="flex items-center gap-3"><i class="fas fa-phone text-purple-600"></i> <span>+234 (0) 702 651 8719</span></p>
+            <p class="flex items-center gap-3"><i class="fas fa-mobile-alt text-purple-600"></i> <span>0818 349 6501</span></p>
+            <p class="flex items-center gap-3"><i class="fas fa-envelope text-purple-600"></i> <a href="mailto:suolalogistics4@gmail.com" class="text-purple-700 hover:underline">suolalogistics4@gmail.com</a></p>
+            <a href="https://wa.me/2347026518719" target="_blank" class="inline-flex items-center gap-2 bg-green-500 text-white px-6 py-3 rounded-full font-semibold hover:bg-green-600 mt-4">
+              <i class="fab fa-whatsapp"></i> Chat on WhatsApp
+            </a>
+          </div>
+        </div>
+        <div>
+          <h3 class="text-2xl font-bold mb-6">Quick Message</h3>
+          <form onsubmit="handleSubmit(event, 'General Inquiry')">
+            <input type="text" required placeholder="Your Name" class="form-input w-full border border-gray-300 rounded-lg px-4 py-3 mb-4 focus:outline-none focus:ring-2 focus:ring-purple-500">
+            <input type="tel" required placeholder="Phone Number" class="form-input w-full border border-gray-300 rounded-lg px-4 py-3 mb-4 focus:outline-none focus:ring-2 focus:ring-purple-500">
+            <input type="email" placeholder="Email (optional)" class="form-input w-full border border-gray-300 rounded-lg px-4 py-3 mb-4 focus:outline-none focus:ring-2 focus:ring-purple-500">
+            <textarea rows="4" required placeholder="How can we help you?" class="form-input w-full border border-gray-300 rounded-lg px-4 py-3 mb-4 focus:outline-none focus:ring-2 focus:ring-purple-500"></textarea>
+            <button type="submit" class="btn-primary w-full text-white py-4 rounded-xl font-bold">Send Message</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-900 text-gray-300 py-10">
+    <div class="container mx-auto px-4 text-center">
+      <div class="flex justify-center mb-4">
+        <img src="logo.jpg" alt="Logo" class="h-10 object-contain filter brightness-0 invert">
+      </div>
+      <p class="font-semibold text-white text-lg mb-2">SUOLA LOGISTICS</p>
+      <p class="text-sm mb-4">Cargo | Flight Ticketing | Car hiring | Hotel Reservation | Airport Services</p>
+      <p class="text-sm">© 2026 Suola Logistics. All rights reserved. Based at MM2 Local Airport, Lagos.</p>
+      <p class="text-xs mt-4 opacity-70">CEO: Dolapo Adeniyi</p>
+    </div>
+  </footer>
+
+  <script>
+    function showTab(tab) {
+      document.querySelectorAll('.form-panel').forEach(p => p.classList.add('hidden'));
+      document.querySelectorAll('.tab-btn').forEach(b => {
+        b.classList.remove('tab-active', 'bg-white', 'border');
+        b.classList.add('bg-white', 'border');
+      });
+      document.getElementById('form-' + tab).classList.remove('hidden');
+      const activeBtn = document.getElementById('tab-' + tab);
+      activeBtn.classList.add('tab-active');
+      activeBtn.classList.remove('bg-white', 'border');
+      document.getElementById('success-message').classList.add('hidden');
+    }
+
+    function handleSubmit(e, type) {
+      e.preventDefault();
+      // In production, send to email/WhatsApp/backend. For demo:
+      document.getElementById('success-message').classList.remove('hidden');
+      e.target.reset();
+      // Optional: open WhatsApp with prefilled message
+      // window.open('https://wa.me/2347026518719?text=Hello Suola Logistics, I have a ' + type + ' request.', '_blank');
+      setTimeout(() => {
+        document.getElementById('success-message').scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }, 100);
+    }
+
+    // Set default tab
+    showTab('flight');
+  </script>
+</body>
+</html>
