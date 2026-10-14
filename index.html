@@ -1,401 +1,833 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Suola Logistics | Flight Bookings, Cargo & Airport Services | MM2 Lagos</title>
-  <meta name="description" content="Suola Logistics – Expert flight ticketing, cargo logistics, car hiring, hotel reservations and airport services at MM2 Local Airport, Lagos. Book with Dolapo Adeniyi's team.">
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
-    body { font-family: 'Inter', system_ui, sans-serif; }
-    .gradient-bg { background: linear-gradient(135deg, #1e1b4b 0%, #4c1d95 50%, #7c3aed 100%); }
-    .purple-accent { color: #a855f7; }
-    .btn-primary { background: linear-gradient(135deg, #7c3aed, #f97316); transition: all 0.3s; }
-    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 10px 25px rgba(124, 58, 237, 0.4); }
-    .service-card:hover { transform: translateY(-8px); }
-    .form-input:focus { border-color: #a855f7; ring: 2px solid #a855f7; }
-    .tab-active { background: #7c3aed; color: white; }
-  </style>
+  <title>Suola Logistics — Airport Concierge &amp; Cargo | MM2 Lagos</title>
+  <meta name="description" content="Aviation concierge operating from MM2 Local Airport (First Floor Departure Hall), Lagos. Flight ticketing, same-day domestic air cargo, airport chauffeur transfers, and hotel reservations.">
+  <meta name="theme-color" content="#111019">
+
+  <!-- OpenGraph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Suola Logistics — MM2 Lagos Airport Concierge">
+  <meta property="og:description" content="Flights, express cargo, chauffeur transfers, and hotels. Coordinated directly from our desk at MM2 Airport, Lagos.">
+  <meta property="og:image" content="logo.jpg">
+  <link rel="icon" href="logo.jpg">
+
+  <!-- Clean Typography: Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="styles.css">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": ["TravelAgency", "LocalBusiness"],
+    "name": "Suola Logistics",
+    "description": "On-the-ground aviation concierge at MM2 Local Airport Departure Hall in Lagos. Coordinating flight tickets, same-day air cargo, chauffeur transfers, and hotel reservations.",
+    "telephone": "+2347026518719",
+    "email": "suolalogistics4@gmail.com",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Murtala Muhammed Terminal 2 (MM2), First Floor, Departure Hall",
+      "addressLocality": "Ikeja",
+      "addressRegion": "Lagos",
+      "addressCountry": "NG"
+    },
+    "founder": {
+      "@type": "Person",
+      "name": "Dolapo Adeniyi"
+    }
+  }
+  </script>
 </head>
-<body class="bg-gray-50 text-gray-800">
-  <!-- Header -->
-  <header class="bg-white shadow-md sticky top-0 z-50">
-    <div class="container mx-auto px-4 py-3 flex items-center justify-between">
-      <div class="flex items-center gap-3">
-        <img src="logo.jpg" alt="Suola Logistics Logo" class="h-12 w-auto object-contain">
-        <div>
-          <h1 class="text-xl font-bold tracking-tight">SUOLA <span class="text-purple-600">LOGISTICS</span></h1>
-          <p class="text-xs text-gray-500">MM2 Airport • Lagos</p>
-        </div>
-      </div>
-      <nav class="hidden md:flex gap-6 text-sm font-medium">
-        <a href="#home" class="hover:text-purple-600">Home</a>
-        <a href="#book" class="hover:text-purple-600">Book Now</a>
-        <a href="#services" class="hover:text-purple-600">Services</a>
-        <a href="#about" class="hover:text-purple-600">About</a>
-        <a href="#contact" class="hover:text-purple-600">Contact</a>
-      </nav>
-      <a href="https://wa.me/2347026518719" target="_blank" class="bg-green-500 text-white px-4 py-2 rounded-full text-sm font-semibold hover:bg-green-600 flex items-center gap-2">
-        <i class="fab fa-whatsapp"></i> WhatsApp
+<body>
+
+  <!-- ============ MODERN FLOATING CAPSULE NAVBAR ============ -->
+  <header class="site-header">
+    <div class="header-capsule">
+      <a href="#top" class="brand" aria-label="Suola Logistics Home">
+        <span class="brand-badge">
+          <img src="logo.jpg" alt="Suola" width="80" height="50">
+        </span>
+        <span class="brand-name">Suola</span>
+        <span class="brand-chip">MM2 Desk</span>
       </a>
+
+      <nav class="header-nav" aria-label="Main Navigation">
+        <a href="#services">Services</a>
+        <a href="#location">Our Desk</a>
+        <a href="#faq">FAQ</a>
+      </nav>
+
+      <div class="header-actions">
+        <!-- Light / Dark Theme Switcher Button -->
+        <button type="button" class="theme-toggle-btn" id="theme-toggle" aria-label="Switch to light mode" title="Toggle color theme">
+          <!-- Sun Icon (visible in dark mode) -->
+          <svg class="theme-icon sun-icon" viewBox="0 0 24 24" aria-hidden="true">
+            <circle cx="12" cy="12" r="4"/>
+            <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/>
+          </svg>
+          <!-- Moon Icon (visible in light mode) -->
+          <svg class="theme-icon moon-icon" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/>
+          </svg>
+        </button>
+
+        <a href="tel:+2347026518719" class="btn btn-ghost btn-sm">
+          <svg class="btn-icon" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+          </svg>
+          <span>Call</span>
+        </a>
+
+        <a href="https://wa.me/2347026518719" target="_blank" rel="noopener noreferrer" class="btn btn-wa btn-sm">
+          <svg class="btn-icon btn-icon-wa" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.6-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.3.5-.4.4c-.1.1-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.3 2.4 1.5.3.1.5.1.6-.1l.9-1c.2-.3.4-.2.6-.1l1.9.9c.3.1.5.2.5.3.1.2.1.7-.1 1.3Z"/>
+          </svg>
+          <span>WhatsApp</span>
+        </a>
+      </div>
     </div>
   </header>
 
-  <!-- Hero -->
-  <section id="home" class="gradient-bg text-white py-16 md:py-24 relative overflow-hidden">
-    <div class="absolute inset-0 opacity-20">
-      <img src="airport.jpg" alt="Airport" class="w-full h-full object-cover">
-    </div>
-    <div class="container mx-auto px-4 relative z-10 text-center">
-      <h2 class="text-4xl md:text-6xl font-extrabold mb-4 leading-tight">Your Trusted Partner for <span class="text-orange-300">Flights & Logistics</span></h2>
-      <p class="text-lg md:text-xl max-w-3xl mx-auto mb-8 opacity-90">Flight ticketing, cargo handling, car hiring, hotel reservations & full airport services right at MM2 Local Airport, Lagos.</p>
-      <div class="flex flex-wrap justify-center gap-4">
-        <a href="#book" class="btn-primary text-white px-8 py-4 rounded-full font-bold text-lg">Book a Flight</a>
-        <a href="#services" class="bg-white/20 backdrop-blur border border-white/30 px-8 py-4 rounded-full font-semibold hover:bg-white/30">Our Services</a>
-      </div>
-    </div>
-  </section>
+  <main>
+    <!-- ============ HERO & CONCIERGE CARD ============ -->
+    <section class="hero" id="top">
+      <div class="container hero-grid">
+        <!-- Hero Text -->
+        <div class="hero-copy">
+          <span class="badge-tag">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/>
+              <circle cx="12" cy="10" r="3"/>
+            </svg>
+            MM2 Local Airport · Lagos
+          </span>
+          <h1>Your airport concierge.<span>One message sorts it.</span></h1>
+          <p class="lead">
+            Flights across major carriers, same-day air cargo, airport chauffeur pickups, and hotel reservations — coordinated directly from our desk on the MM2 departure floor.
+          </p>
 
-  <!-- Quick Stats -->
-  <section class="bg-white py-8 border-b">
-    <div class="container mx-auto px-4 grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
-      <div><div class="text-3xl font-bold text-purple-600">24/7</div><div class="text-sm text-gray-600">Airport Support</div></div>
-      <div><div class="text-3xl font-bold text-purple-600">Fast</div><div class="text-sm text-gray-600">Flight Ticketing</div></div>
-      <div><div class="text-3xl font-bold text-purple-600">Secure</div><div class="text-sm text-gray-600">Cargo Handling</div></div>
-      <div><div class="text-3xl font-bold text-purple-600">MM2</div><div class="text-sm text-gray-600">Local Airport</div></div>
-    </div>
-  </section>
+          <div class="hero-meta-row">
+            <span>
+              <svg style="width: 15px; height: 15px; stroke: currentColor; fill: none;" viewBox="0 0 24 24" stroke-width="2">
+                <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/>
+                <circle cx="12" cy="10" r="3"/>
+              </svg>
+              First Floor, Departure Hall
+            </span>
+            <span>
+              <svg style="width: 15px; height: 15px; stroke: currentColor; fill: none;" viewBox="0 0 24 24" stroke-width="2">
+                <path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.3c.4-.2.6-.6.5-1.1z"/>
+              </svg>
+              Air Peace · Ibom · Overland · United Nigeria
+            </span>
+          </div>
 
-  <!-- Booking Section -->
-  <section id="book" class="py-16 bg-gray-50">
-    <div class="container mx-auto px-4">
-      <h2 class="text-3xl md:text-4xl font-bold text-center mb-2">Book Your Service</h2>
-      <p class="text-center text-gray-600 mb-10">Quick booking forms – we’ll respond promptly via phone, WhatsApp or email.</p>
-
-      <!-- Tabs -->
-      <div class="flex flex-wrap justify-center gap-2 mb-8">
-        <button onclick="showTab('flight')" id="tab-flight" class="tab-btn px-6 py-3 rounded-full font-semibold tab-active">✈️ Flight Ticketing</button>
-        <button onclick="showTab('cargo')" id="tab-cargo" class="tab-btn px-6 py-3 rounded-full font-semibold bg-white border">📦 Cargo / Logistics</button>
-        <button onclick="showTab('car')" id="tab-car" class="tab-btn px-6 py-3 rounded-full font-semibold bg-white border">🚗 Car Hiring</button>
-        <button onclick="showTab('hotel')" id="tab-hotel" class="tab-btn px-6 py-3 rounded-full font-semibold bg-white border">🏨 Hotel Reservation</button>
-      </div>
-
-      <!-- Flight Form -->
-      <div id="form-flight" class="form-panel max-w-4xl mx-auto bg-white p-8 rounded-2xl shadow-xl">
-        <h3 class="text-2xl font-bold mb-6 text-purple-700">Flight Booking Request</h3>
-        <form onsubmit="handleSubmit(event, 'Flight')">
-          <div class="grid md:grid-cols-2 gap-4">
-            <div>
-              <label class="block text-sm font-medium mb-1">From</label>
-              <input type="text" required placeholder="e.g. Lagos (LOS)" class="form-input w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-purple-500">
-            </div>
-            <div>
-              <label class="block text-sm font-medium mb-1">To</label>
-              <input type="text" required placeholder="e.g. Abuja (ABV)" class="form-input w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-purple-500">
-            </div>
-            <div>
-              <label class="block text-sm font-medium mb-1">Departure Date</label>
-              <input type="date" required class="form-input w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-purple-500">
-            </div>
-            <div>
-              <label class="block text-sm font-medium mb-1">Return Date (optional)</label>
-              <input type="date" class="form-input w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-purple-500">
-            </div>
-            <div>
-              <label class="block text-sm font-medium mb-1">Passengers</label>
-              <select class="form-input w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-purple-500">
-                <option>1 Adult</option>
-                <option>2 Adults</option>
-                <option>3 Adults</option>
-                <option>4+ Adults</option>
-                <option>Family (with children)</option>
-              </select>
-            </div>
-            <div>
-              <label class="block text-sm font-medium mb-1">Class</label>
-              <select class="form-input w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-purple-500">
-                <option>Economy</option>
-                <option>Premium Economy</option>
-                <option>Business</option>
-                <option>First Class</option>
-              </select>
-            </div>
-          </div>
-          <div class="mt-4">
-            <label class="block text-sm font-medium mb-1">Full Name</label>
-            <input type="text" required class="form-input w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-purple-500">
-          </div>
-          <div class="grid md:grid-cols-2 gap-4 mt-4">
-            <div>
-              <label class="block text-sm font-medium mb-1">Phone</label>
-              <input type="tel" required placeholder="080xxxxxxxx" class="form-input w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-purple-500">
-            </div>
-            <div>
-              <label class="block text-sm font-medium mb-1">Email</label>
-              <input type="email" required class="form-input w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-purple-500">
-            </div>
-          </div>
-          <div class="mt-4">
-            <label class="block text-sm font-medium mb-1">Special Requests</label>
-            <textarea rows="3" placeholder="Any preferences or notes..." class="form-input w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-purple-500"></textarea>
-          </div>
-          <button type="submit" class="btn-primary w-full mt-6 text-white py-4 rounded-xl font-bold text-lg">Request Flight Quote</button>
-        </form>
-      </div>
-
-      <!-- Cargo Form -->
-      <div id="form-cargo" class="form-panel hidden max-w-4xl mx-auto bg-white p-8 rounded-2xl shadow-xl">
-        <h3 class="text-2xl font-bold mb-6 text-purple-700">Cargo / Logistics Request</h3>
-        <form onsubmit="handleSubmit(event, 'Cargo')">
-          <div class="grid md:grid-cols-2 gap-4">
-            <div>
-              <label class="block text-sm font-medium mb-1">Origin</label>
-              <input type="text" required placeholder="City / Airport" class="form-input w-full border border-gray-300 rounded-lg px-4 py-3">
-            </div>
-            <div>
-              <label class="block text-sm font-medium mb-1">Destination</label>
-              <input type="text" required placeholder="City / Airport" class="form-input w-full border border-gray-300 rounded-lg px-4 py-3">
-            </div>
-            <div>
-              <label class="block text-sm font-medium mb-1">Approximate Weight (kg)</label>
-              <input type="number" required class="form-input w-full border border-gray-300 rounded-lg px-4 py-3">
-            </div>
-            <div>
-              <label class="block text-sm font-medium mb-1">Dimensions / Type</label>
-              <input type="text" placeholder="e.g. 3 boxes, documents, perishable" class="form-input w-full border border-gray-300 rounded-lg px-4 py-3">
-            </div>
-          </div>
-          <div class="mt-4">
-            <label class="block text-sm font-medium mb-1">Cargo Description</label>
-            <textarea rows="3" required class="form-input w-full border border-gray-300 rounded-lg px-4 py-3"></textarea>
-          </div>
-          <div class="grid md:grid-cols-2 gap-4 mt-4">
-            <input type="text" required placeholder="Your Name" class="form-input w-full border border-gray-300 rounded-lg px-4 py-3">
-            <input type="tel" required placeholder="Phone Number" class="form-input w-full border border-gray-300 rounded-lg px-4 py-3">
-          </div>
-          <button type="submit" class="btn-primary w-full mt-6 text-white py-4 rounded-xl font-bold text-lg">Request Cargo Quote</button>
-        </form>
-      </div>
-
-      <!-- Car Form -->
-      <div id="form-car" class="form-panel hidden max-w-4xl mx-auto bg-white p-8 rounded-2xl shadow-xl">
-        <h3 class="text-2xl font-bold mb-6 text-purple-700">Car Hiring Request</h3>
-        <form onsubmit="handleSubmit(event, 'Car Hire')">
-          <div class="grid md:grid-cols-2 gap-4">
-            <div>
-              <label class="block text-sm font-medium mb-1">Pickup Location</label>
-              <input type="text" required value="MM2 Local Airport" class="form-input w-full border border-gray-300 rounded-lg px-4 py-3">
-            </div>
-            <div>
-              <label class="block text-sm font-medium mb-1">Drop-off Location</label>
-              <input type="text" required placeholder="Hotel, office, etc." class="form-input w-full border border-gray-300 rounded-lg px-4 py-3">
-            </div>
-            <div>
-              <label class="block text-sm font-medium mb-1">Date & Time</label>
-              <input type="datetime-local" required class="form-input w-full border border-gray-300 rounded-lg px-4 py-3">
-            </div>
-            <div>
-              <label class="block text-sm font-medium mb-1">Vehicle Preference</label>
-              <select class="form-input w-full border border-gray-300 rounded-lg px-4 py-3">
-                <option>Sedan</option>
-                <option>SUV</option>
-                <option>Luxury</option>
-                <option>Minibus / Van</option>
-                <option>Any available</option>
-              </select>
-            </div>
-          </div>
-          <div class="grid md:grid-cols-2 gap-4 mt-4">
-            <input type="text" required placeholder="Your Name" class="form-input w-full border border-gray-300 rounded-lg px-4 py-3">
-            <input type="tel" required placeholder="Phone Number" class="form-input w-full border border-gray-300 rounded-lg px-4 py-3">
-          </div>
-          <button type="submit" class="btn-primary w-full mt-6 text-white py-4 rounded-xl font-bold text-lg">Request Car Hire</button>
-        </form>
-      </div>
-
-      <!-- Hotel Form -->
-      <div id="form-hotel" class="form-panel hidden max-w-4xl mx-auto bg-white p-8 rounded-2xl shadow-xl">
-        <h3 class="text-2xl font-bold mb-6 text-purple-700">Hotel Reservation</h3>
-        <form onsubmit="handleSubmit(event, 'Hotel')">
-          <div class="grid md:grid-cols-2 gap-4">
-            <div>
-              <label class="block text-sm font-medium mb-1">Check-in Date</label>
-              <input type="date" required class="form-input w-full border border-gray-300 rounded-lg px-4 py-3">
-            </div>
-            <div>
-              <label class="block text-sm font-medium mb-1">Check-out Date</label>
-              <input type="date" required class="form-input w-full border border-gray-300 rounded-lg px-4 py-3">
-            </div>
-            <div>
-              <label class="block text-sm font-medium mb-1">Location / Area</label>
-              <input type="text" placeholder="e.g. Ikeja, Victoria Island, near MM2" class="form-input w-full border border-gray-300 rounded-lg px-4 py-3">
-            </div>
-            <div>
-              <label class="block text-sm font-medium mb-1">Rooms / Guests</label>
-              <input type="text" placeholder="e.g. 1 room, 2 adults" class="form-input w-full border border-gray-300 rounded-lg px-4 py-3">
-            </div>
-          </div>
-          <div class="grid md:grid-cols-2 gap-4 mt-4">
-            <input type="text" required placeholder="Your Name" class="form-input w-full border border-gray-300 rounded-lg px-4 py-3">
-            <input type="tel" required placeholder="Phone Number" class="form-input w-full border border-gray-300 rounded-lg px-4 py-3">
-          </div>
-          <div class="mt-4">
-            <textarea rows="2" placeholder="Preferences (budget, star rating, etc.)" class="form-input w-full border border-gray-300 rounded-lg px-4 py-3"></textarea>
-          </div>
-          <button type="submit" class="btn-primary w-full mt-6 text-white py-4 rounded-xl font-bold text-lg">Request Hotel Booking</button>
-        </form>
-      </div>
-
-      <div id="success-message" class="hidden mt-6 max-w-4xl mx-auto bg-green-100 border border-green-400 text-green-800 px-6 py-4 rounded-xl text-center">
-        <strong>Request submitted!</strong> Our team will contact you shortly via phone or WhatsApp. Thank you for choosing Suola Logistics.
-      </div>
-    </div>
-  </section>
-
-  <!-- Services -->
-  <section id="services" class="py-16 bg-white">
-    <div class="container mx-auto px-4">
-      <h2 class="text-3xl md:text-4xl font-bold text-center mb-4">Our Services</h2>
-      <p class="text-center text-gray-600 mb-12 max-w-2xl mx-auto">Comprehensive travel and logistics solutions based at MM2 Local Airport.</p>
-      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-        <div class="service-card bg-gray-50 rounded-2xl overflow-hidden shadow-lg transition duration-300">
-          <img src="airport.jpg" alt="Flight Ticketing" class="h-48 w-full object-cover">
-          <div class="p-6">
-            <h3 class="text-xl font-bold mb-2">✈️ Flight Ticketing</h3>
-            <p class="text-gray-600">Domestic and international flight bookings with competitive rates and expert support.</p>
-          </div>
-        </div>
-        <div class="service-card bg-gray-50 rounded-2xl overflow-hidden shadow-lg transition duration-300">
-          <img src="cargo.jpg" alt="Cargo Logistics" class="h-48 w-full object-cover">
-          <div class="p-6">
-            <h3 class="text-xl font-bold mb-2">📦 Cargo & Logistics</h3>
-            <p class="text-gray-600">Secure air cargo, freight forwarding and logistics solutions for businesses and individuals.</p>
-          </div>
-        </div>
-        <div class="service-card bg-gray-50 rounded-2xl overflow-hidden shadow-lg transition duration-300">
-          <img src="hotel-car.jpg" alt="Car & Hotel" class="h-48 w-full object-cover">
-          <div class="p-6">
-            <h3 class="text-xl font-bold mb-2">🚗 Car Hiring</h3>
-            <p class="text-gray-600">Airport transfers and car rentals – sedans, SUVs and luxury vehicles available.</p>
-          </div>
-        </div>
-        <div class="service-card bg-gray-50 rounded-2xl overflow-hidden shadow-lg transition duration-300">
-          <div class="h-48 bg-gradient-to-br from-purple-500 to-orange-400 flex items-center justify-center">
-            <i class="fas fa-hotel text-6xl text-white"></i>
-          </div>
-          <div class="p-6">
-            <h3 class="text-xl font-bold mb-2">🏨 Hotel Reservation</h3>
-            <p class="text-gray-600">Partner hotel bookings across Lagos and beyond with special rates.</p>
-          </div>
-        </div>
-        <div class="service-card bg-gray-50 rounded-2xl overflow-hidden shadow-lg transition duration-300">
-          <div class="h-48 bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center">
-            <i class="fas fa-plane-departure text-6xl text-white"></i>
-          </div>
-          <div class="p-6">
-            <h3 class="text-xl font-bold mb-2">✈️ Airport Services</h3>
-            <p class="text-gray-600">Meet & greet, check-in assistance, VIP services and more at MM2 Departure Hall.</p>
-          </div>
-        </div>
-        <div class="service-card bg-gray-50 rounded-2xl overflow-hidden shadow-lg transition duration-300">
-          <div class="h-48 bg-gradient-to-br from-orange-400 to-red-500 flex items-center justify-center">
-            <i class="fas fa-headset text-6xl text-white"></i>
-          </div>
-          <div class="p-6">
-            <h3 class="text-xl font-bold mb-2">📞 24/7 Support</h3>
-            <p class="text-gray-600">Dedicated team ready to assist with all your travel and logistics needs.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- About -->
-  <section id="about" class="py-16 bg-gray-50">
-    <div class="container mx-auto px-4 max-w-4xl">
-      <h2 class="text-3xl md:text-4xl font-bold text-center mb-8">About Suola Logistics</h2>
-      <div class="bg-white rounded-2xl shadow-lg p-8 md:p-12">
-        <p class="text-lg leading-relaxed mb-6">Suola Logistics is a trusted provider of aviation and logistics services based at <strong>MM2 Local Airport (Murtala Muhammed Airport Terminal 2)</strong>, First Floor, Departure Hall, Lagos.</p>
-        <p class="text-lg leading-relaxed mb-6">Led by Chief Executive Officer <strong>Dolapo Adeniyi</strong>, we specialize in making travel and cargo movement seamless for individuals and businesses. From flight ticketing to full airport support, cargo handling, car hiring and hotel reservations — we handle it all.</p>
-        <p class="text-lg leading-relaxed">Visit us at the airport or contact us anytime. We’re committed to reliable, professional service that gets you and your goods where they need to go.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Contact -->
-  <section id="contact" class="py-16 bg-white">
-    <div class="container mx-auto px-4">
-      <h2 class="text-3xl md:text-4xl font-bold text-center mb-10">Contact Us</h2>
-      <div class="grid md:grid-cols-2 gap-10 max-w-5xl mx-auto">
-        <div class="bg-purple-50 rounded-2xl p-8">
-          <h3 class="text-2xl font-bold mb-6 text-purple-800">Get in Touch</h3>
-          <div class="space-y-4">
-            <p class="flex items-start gap-3"><i class="fas fa-map-marker-alt text-purple-600 mt-1"></i> <span><strong>Address:</strong><br>Mm2 Local Airport<br>First Floor, Departure Hall<br>Lagos, Nigeria</span></p>
-            <p class="flex items-center gap-3"><i class="fas fa-phone text-purple-600"></i> <span>+234 (0) 702 651 8719</span></p>
-            <p class="flex items-center gap-3"><i class="fas fa-mobile-alt text-purple-600"></i> <span>0818 349 6501</span></p>
-            <p class="flex items-center gap-3"><i class="fas fa-envelope text-purple-600"></i> <a href="mailto:suolalogistics4@gmail.com" class="text-purple-700 hover:underline">suolalogistics4@gmail.com</a></p>
-            <a href="https://wa.me/2347026518719" target="_blank" class="inline-flex items-center gap-2 bg-green-500 text-white px-6 py-3 rounded-full font-semibold hover:bg-green-600 mt-4">
-              <i class="fab fa-whatsapp"></i> Chat on WhatsApp
+          <!-- Hero Action Buttons with Icons -->
+          <div class="hero-actions-row">
+            <a href="#services" class="btn btn-ghost btn-sm">
+              <svg class="btn-icon" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect width="7" height="7" x="3" y="3" rx="1"/>
+                <rect width="7" height="7" x="14" y="3" rx="1"/>
+                <rect width="7" height="7" x="14" y="14" rx="1"/>
+                <rect width="7" height="7" x="3" y="14" rx="1"/>
+              </svg>
+              <span>Explore Services</span>
+            </a>
+            <a href="#location" class="btn btn-ghost btn-sm">
+              <svg class="btn-icon" viewBox="0 0 24 24" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/>
+                <circle cx="12" cy="10" r="3"/>
+              </svg>
+              <span>Find Our MM2 Desk</span>
             </a>
           </div>
         </div>
-        <div>
-          <h3 class="text-2xl font-bold mb-6">Quick Message</h3>
-          <form onsubmit="handleSubmit(event, 'General Inquiry')">
-            <input type="text" required placeholder="Your Name" class="form-input w-full border border-gray-300 rounded-lg px-4 py-3 mb-4 focus:outline-none focus:ring-2 focus:ring-purple-500">
-            <input type="tel" required placeholder="Phone Number" class="form-input w-full border border-gray-300 rounded-lg px-4 py-3 mb-4 focus:outline-none focus:ring-2 focus:ring-purple-500">
-            <input type="email" placeholder="Email (optional)" class="form-input w-full border border-gray-300 rounded-lg px-4 py-3 mb-4 focus:outline-none focus:ring-2 focus:ring-purple-500">
-            <textarea rows="4" required placeholder="How can we help you?" class="form-input w-full border border-gray-300 rounded-lg px-4 py-3 mb-4 focus:outline-none focus:ring-2 focus:ring-purple-500"></textarea>
-            <button type="submit" class="btn-primary w-full text-white py-4 rounded-xl font-bold">Send Message</button>
+
+        <!-- Single Clean Concierge Card -->
+        <div class="concierge-card" id="book">
+          <!-- Service Selector Tabs with Micro-Icons -->
+          <div class="service-selector" role="tablist" aria-label="Choose Service">
+            <button class="service-btn active" role="tab" aria-selected="true" data-tab="flight">
+              <svg class="service-btn-icon" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.3c.4-.2.6-.6.5-1.1z"/>
+              </svg>
+              <span>Flight</span>
+            </button>
+            <button class="service-btn" role="tab" aria-selected="false" data-tab="cargo">
+              <svg class="service-btn-icon" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="m7.5 4.27 9 5.15M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"/>
+                <path d="m3.3 7 8.7 5 8.7-5M12 22V12"/>
+              </svg>
+              <span>Cargo</span>
+            </button>
+            <button class="service-btn" role="tab" aria-selected="false" data-tab="car">
+              <svg class="service-btn-icon" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9C2.1 11.2 2 11.6 2 12v4c0 .6.4 1 1 1h2"/>
+                <circle cx="7" cy="17" r="2"/>
+                <path d="M9 17h6"/>
+                <circle cx="17" cy="17" r="2"/>
+              </svg>
+              <span>Car Hire</span>
+            </button>
+            <button class="service-btn" role="tab" aria-selected="false" data-tab="hotel">
+              <svg class="service-btn-icon" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M2 4v16M2 8h18a2 2 0 0 1 2 2v10M2 17h20M6 8v9"/>
+              </svg>
+              <span>Hotel</span>
+            </button>
+            <button class="service-btn" role="tab" aria-selected="false" data-tab="protocol">
+              <svg class="service-btn-icon" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+              </svg>
+              <span>Protocol</span>
+            </button>
+          </div>
+
+          <!-- Panel 1: Flight -->
+          <form class="form-panel" id="panel-flight" data-type="FLIGHT">
+            <div class="form-row form-row-swap">
+              <div class="form-field">
+                <label for="f-from">From</label>
+                <input id="f-from" name="From" required value="Lagos (LOS)">
+              </div>
+              <button type="button" class="btn-swap" id="btn-swap-flight" aria-label="Swap departure and arrival cities" title="Swap route">
+                <svg viewBox="0 0 24 24" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M7 16l-4-4m0 0 4-4m-4 4h18M17 8l4 4m0 0-4 4m4-4H3"/>
+                </svg>
+              </button>
+              <div class="form-field">
+                <label for="f-to">To</label>
+                <input id="f-to" name="To" required placeholder="Abuja (ABV)">
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-field">
+                <div class="label-with-chips">
+                  <label for="f-date">Depart Date</label>
+                  <div class="quick-chips">
+                    <button type="button" class="date-chip-btn" data-target="f-date" data-offset="0" title="Set to today">
+                      <svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <circle cx="12" cy="12" r="10"/>
+                        <polyline points="12 6 12 12 16 14"/>
+                      </svg>
+                      <span>Today</span>
+                    </button>
+                    <button type="button" class="date-chip-btn" data-target="f-date" data-offset="1" title="Set to tomorrow">
+                      <svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <rect width="18" height="18" x="3" y="4" rx="2" ry="2"/>
+                        <line x1="16" x2="16" y1="2" y2="6"/>
+                        <line x1="8" x2="8" y1="2" y2="6"/>
+                        <line x1="3" x2="21" y1="10" y2="10"/>
+                      </svg>
+                      <span>Tomorrow</span>
+                    </button>
+                  </div>
+                </div>
+                <input id="f-date" name="Depart Date" type="date" required class="date-min">
+              </div>
+              <div class="form-field">
+                <label for="f-carrier">Preferred Airline</label>
+                <select id="f-carrier" name="Preferred Airline">
+                  <option value="Any Best Fare">Any Best Fare</option>
+                  <option value="Air Peace">Air Peace</option>
+                  <option value="Ibom Air">Ibom Air</option>
+                  <option value="United Nigeria">United Nigeria</option>
+                  <option value="Overland Airways">Overland Airways</option>
+                  <option value="ValueJet">ValueJet</option>
+                  <option value="Arik Air">Arik Air</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-field">
+                <label for="f-name">Your Name</label>
+                <input id="f-name" name="Name" required autocomplete="name" placeholder="Full name">
+              </div>
+              <div class="form-field">
+                <label for="f-phone">WhatsApp Number</label>
+                <input id="f-phone" name="Phone" type="tel" required autocomplete="tel" placeholder="080…">
+              </div>
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-block">
+              <svg class="btn-icon btn-icon-wa" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.6-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.3.5-.4.4c-.1.1-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.3 2.4 1.5.3.1.5.1.6-.1l.9-1c.2-.3.4-.2.6-.1l1.9.9c.3.1.5.2.5.3.1.2.1.7-.1 1.3Z"/>
+              </svg>
+              <span>Get Fares on WhatsApp</span>
+              <svg class="btn-icon-right" viewBox="0 0 24 24" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M5 12h14M12 5l7 7-7 7"/>
+              </svg>
+            </button>
+            <p class="form-help">Instant response from our MM2 floor desk.</p>
+          </form>
+
+          <!-- Panel 2: Cargo -->
+          <form class="form-panel" id="panel-cargo" data-type="CARGO" hidden>
+            <div class="form-row">
+              <div class="form-field">
+                <label for="c-from">From</label>
+                <input id="c-from" name="From" required value="MM2 Lagos">
+              </div>
+              <div class="form-field">
+                <label for="c-to">Destination</label>
+                <input id="c-to" name="To" required placeholder="Abuja, Kano, PHC…">
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-field">
+                <label for="c-weight">Approx. Weight (kg)</label>
+                <input id="c-weight" name="Weight (kg)" type="number" min="1" required placeholder="e.g. 15">
+              </div>
+              <div class="form-field">
+                <label for="c-item">What are you sending?</label>
+                <input id="c-item" name="Items" required placeholder="Documents, clothes, spares…">
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-field">
+                <label for="c-name">Your Name</label>
+                <input id="c-name" name="Name" required autocomplete="name">
+              </div>
+              <div class="form-field">
+                <label for="c-phone">WhatsApp Number</label>
+                <input id="c-phone" name="Phone" type="tel" required autocomplete="tel" placeholder="080…">
+              </div>
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-block">
+              <svg class="btn-icon btn-icon-wa" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.6-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.3.5-.4.4c-.1.1-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.3 2.4 1.5.3.1.5.1.6-.1l.9-1c.2-.3.4-.2.6-.1l1.9.9c.3.1.5.2.5.3.1.2.1.7-.1 1.3Z"/>
+              </svg>
+              <span>Get Cargo Quote on WhatsApp</span>
+              <svg class="btn-icon-right" viewBox="0 0 24 24" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M5 12h14M12 5l7 7-7 7"/>
+              </svg>
+            </button>
+            <p class="form-help">Same-day flights available for morning desk drops.</p>
+          </form>
+
+          <!-- Panel 3: Car Hire -->
+          <form class="form-panel" id="panel-car" data-type="CAR HIRE" hidden>
+            <div class="form-row">
+              <div class="form-field">
+                <label for="r-pick">Pick-up Location</label>
+                <input id="r-pick" name="Pickup" required value="MM2 Arrivals">
+              </div>
+              <div class="form-field">
+                <label for="r-drop">Drop-off Destination</label>
+                <input id="r-drop" name="Drop-off" required placeholder="Ikeja, VI, Ikoyi, Lekki…">
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-field">
+                <label for="r-when">Date &amp; Time</label>
+                <input id="r-when" name="When" type="datetime-local" required>
+              </div>
+              <div class="form-field">
+                <label for="r-type">Vehicle Class</label>
+                <select id="r-type" name="Vehicle">
+                  <option value="Executive Sedan (Camry / Lexus)">Executive Sedan</option>
+                  <option value="Luxury SUV (Prado / Land Cruiser)">Luxury SUV</option>
+                  <option value="Executive Van / Coaster">Group Van / Coaster</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-field">
+                <label for="r-name">Passenger Name</label>
+                <input id="r-name" name="Name" required autocomplete="name" placeholder="For greeting sign">
+              </div>
+              <div class="form-field">
+                <label for="r-phone">WhatsApp Number</label>
+                <input id="r-phone" name="Phone" type="tel" required autocomplete="tel" placeholder="080…">
+              </div>
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-block">
+              <svg class="btn-icon btn-icon-wa" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.6-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.3.5-.4.4c-.1.1-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.3 2.4 1.5.3.1.5.1.6-.1l.9-1c.2-.3.4-.2.6-.1l1.9.9c.3.1.5.2.5.3.1.2.1.7-.1 1.3Z"/>
+              </svg>
+              <span>Book Chauffeur on WhatsApp</span>
+              <svg class="btn-icon-right" viewBox="0 0 24 24" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M5 12h14M12 5l7 7-7 7"/>
+              </svg>
+            </button>
+            <p class="form-help">Clean AC vehicles with vetted drivers.</p>
+          </form>
+
+          <!-- Panel 4: Hotel -->
+          <form class="form-panel" id="panel-hotel" data-type="HOTEL" hidden>
+            <div class="form-row">
+              <div class="form-field">
+                <label for="h-area">Preferred Area</label>
+                <select id="h-area" name="Area">
+                  <option value="Ikeja GRA (5 mins from MM2)">Ikeja GRA (5 mins from MM2)</option>
+                  <option value="Maryland / Ikeja Central">Maryland / Central Ikeja</option>
+                  <option value="Victoria Island / Ikoyi">Victoria Island / Ikoyi</option>
+                  <option value="Lekki Phase 1">Lekki Phase 1</option>
+                </select>
+              </div>
+              <div class="form-field">
+                <label for="h-budget">Budget Per Night</label>
+                <select id="h-budget" name="Budget">
+                  <option value="Under ₦80k">Under ₦80,000</option>
+                  <option value="₦80k – ₦180k">₦80,000 – ₦180,000</option>
+                  <option value="5-Star / ₦180k+">5-Star / ₦180,000+</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-field">
+                <div class="label-with-chips">
+                  <label for="h-in">Check-in</label>
+                  <div class="quick-chips">
+                    <button type="button" class="date-chip-btn" data-target="h-in" data-offset="0" title="Set to today">
+                      <svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <circle cx="12" cy="12" r="10"/>
+                        <polyline points="12 6 12 12 16 14"/>
+                      </svg>
+                      <span>Today</span>
+                    </button>
+                    <button type="button" class="date-chip-btn" data-target="h-in" data-offset="1" title="Set to tomorrow">
+                      <svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <rect width="18" height="18" x="3" y="4" rx="2" ry="2"/>
+                        <line x1="16" x2="16" y1="2" y2="6"/>
+                        <line x1="8" x2="8" y1="2" y2="6"/>
+                        <line x1="3" x2="21" y1="10" y2="10"/>
+                      </svg>
+                      <span>Tomorrow</span>
+                    </button>
+                  </div>
+                </div>
+                <input id="h-in" name="Check-in" type="date" required class="date-min">
+              </div>
+              <div class="form-field">
+                <label for="h-out">Check-out</label>
+                <input id="h-out" name="Check-out" type="date" required class="date-min" data-after="h-in">
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-field">
+                <label for="h-name">Your Name</label>
+                <input id="h-name" name="Name" required autocomplete="name">
+              </div>
+              <div class="form-field">
+                <label for="h-phone">WhatsApp Number</label>
+                <input id="h-phone" name="Phone" type="tel" required autocomplete="tel" placeholder="080…">
+              </div>
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-block">
+              <svg class="btn-icon btn-icon-wa" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.6-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.3.5-.4.4c-.1.1-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.3 2.4 1.5.3.1.5.1.6-.1l.9-1c.2-.3.4-.2.6-.1l1.9.9c.3.1.5.2.5.3.1.2.1.7-.1 1.3Z"/>
+              </svg>
+              <span>Find Hotel on WhatsApp</span>
+              <svg class="btn-icon-right" viewBox="0 0 24 24" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M5 12h14M12 5l7 7-7 7"/>
+              </svg>
+            </button>
+            <p class="form-help">Verified rooms with guaranteed 24/7 power and security.</p>
+          </form>
+
+          <!-- Panel 5: Protocol -->
+          <form class="form-panel" id="panel-protocol" data-type="VIP PROTOCOL" hidden>
+            <div class="form-row">
+              <div class="form-field">
+                <label for="p-pkg">Protocol Service</label>
+                <select id="p-pkg" name="Service">
+                  <option value="MM2 Departure Fast-Track">Departure Fast-Track &amp; Escort</option>
+                  <option value="Arrival VIP Meet &amp; Greet">Arrival Meet &amp; Greet + Luggage</option>
+                  <option value="Int'l to Domestic Airport Transit">Int'l MMIA to Domestic MM2 Transit</option>
+                </select>
+              </div>
+              <div class="form-field">
+                <label for="p-pax">Passengers</label>
+                <input id="p-pax" name="Passengers" type="number" min="1" max="15" value="1" required>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-field">
+                <label for="p-flight">Flight &amp; Airline</label>
+                <input id="p-flight" name="Flight Info" required placeholder="e.g. Air Peace P47120">
+              </div>
+              <div class="form-field">
+                <label for="p-date">Flight Date &amp; Time</label>
+                <input id="p-date" name="Schedule" type="datetime-local" required>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-field">
+                <label for="p-name">Lead Passenger</label>
+                <input id="p-name" name="Name" required autocomplete="name">
+              </div>
+              <div class="form-field">
+                <label for="p-phone">WhatsApp Number</label>
+                <input id="p-phone" name="Phone" type="tel" required autocomplete="tel" placeholder="080…">
+              </div>
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-block">
+              <svg class="btn-icon btn-icon-wa" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.6-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.3.5-.4.4c-.1.1-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.3 2.4 1.5.3.1.5.1.6-.1l.9-1c.2-.3.4-.2.6-.1l1.9.9c.3.1.5.2.5.3.1.2.1.7-.1 1.3Z"/>
+              </svg>
+              <span>Book Protocol on WhatsApp</span>
+              <svg class="btn-icon-right" viewBox="0 0 24 24" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M5 12h14M12 5l7 7-7 7"/>
+              </svg>
+            </button>
+            <p class="form-help">Uniformed terminal protocol staff meet you curbside.</p>
           </form>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Footer -->
-  <footer class="bg-gray-900 text-gray-300 py-10">
-    <div class="container mx-auto px-4 text-center">
-      <div class="flex justify-center mb-4">
-        <img src="logo.jpg" alt="Logo" class="h-10 object-contain filter brightness-0 invert">
+    <!-- ============ SERVICES (CURATED EDITORIAL GRID) ============ -->
+    <section class="section" id="services">
+      <div class="container">
+        <div class="section-head">
+          <span class="badge-tag">Services</span>
+          <h2>Everything around your trip.</h2>
+          <p class="lead">We coordinate with vetted airlines, freight forwarders, and private drivers to eliminate airport stress.</p>
+        </div>
+
+        <div class="services-grid">
+          <!-- 1: Flights -->
+          <article class="service-item">
+            <div class="service-img-wrapper">
+              <img src="airport.jpg" alt="MM2 Lagos Airport Departure Concourse" width="400" height="240" loading="lazy">
+            </div>
+            <div class="service-body">
+              <h3>Flight Ticketing</h3>
+              <p>Compare domestic and regional fares across Air Peace, Ibom Air, United Nigeria, Overland, and ValueJet. Emergency re-routings handled directly at our desk.</p>
+              <a href="#" class="btn btn-service-action" data-wa="Hello Suola Logistics, I need a flight ticket quote.">
+                <svg class="btn-icon" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.3c.4-.2.6-.6.5-1.1z"/>
+                </svg>
+                <span>Check Today's Fares</span>
+                <svg class="btn-icon-right" viewBox="0 0 24 24" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M5 12h14M12 5l7 7-7 7"/>
+                </svg>
+              </a>
+            </div>
+          </article>
+
+          <!-- 2: Cargo -->
+          <article class="service-item">
+            <div class="service-img-wrapper">
+              <img src="cargo.jpg" alt="Air Cargo pallet freight aircraft facility" width="400" height="240" loading="lazy">
+            </div>
+            <div class="service-body">
+              <h3>Same-Day Air Cargo</h3>
+              <p>Drop parcels at our MM2 First Floor counter. Dispatched on scheduled commercial flights to Abuja, Port Harcourt, or Kano the same afternoon.</p>
+              <a href="#" class="btn btn-service-action" data-wa="Hello Suola Logistics, I want to send express air cargo from MM2.">
+                <svg class="btn-icon" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="m7.5 4.27 9 5.15M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"/>
+                  <path d="m3.3 7 8.7 5 8.7-5M12 22V12"/>
+                </svg>
+                <span>Get Cargo Quote</span>
+                <svg class="btn-icon-right" viewBox="0 0 24 24" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M5 12h14M12 5l7 7-7 7"/>
+                </svg>
+              </a>
+            </div>
+          </article>
+
+          <!-- 3: Car Hire -->
+          <article class="service-item">
+            <div class="service-img-wrapper">
+              <img src="hotel-car.jpg" alt="Executive chauffeur vehicle in front of grand hotel" width="400" height="240" loading="lazy">
+            </div>
+            <div class="service-body">
+              <h3>Airport Transfers</h3>
+              <p>Screened private drivers with clean executive sedans and SUVs waiting outside MM2 arrivals. Flight monitoring ensures your driver is ready on touchdown.</p>
+              <a href="#" class="btn btn-service-action" data-wa="Hello Suola Logistics, I need an airport chauffeur pickup.">
+                <svg class="btn-icon" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9C2.1 11.2 2 11.6 2 12v4c0 .6.4 1 1 1h2"/>
+                  <circle cx="7" cy="17" r="2"/>
+                  <path d="M9 17h6"/>
+                  <circle cx="17" cy="17" r="2"/>
+                </svg>
+                <span>Reserve Chauffeur</span>
+                <svg class="btn-icon-right" viewBox="0 0 24 24" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M5 12h14M12 5l7 7-7 7"/>
+                </svg>
+              </a>
+            </div>
+          </article>
+
+          <!-- 4: Hotels -->
+          <article class="service-item">
+            <div class="service-img-wrapper">
+              <img src="hotel.jpg" alt="Executive hotel suite near Ikeja airport" width="400" height="240" loading="lazy">
+            </div>
+            <div class="service-body">
+              <h3>Hotel Suites &amp; Stays</h3>
+              <p>Handpicked accommodations in Ikeja GRA (5 minutes from MM2) and across Lagos. Inspected for quiet comfort, 24/7 power, and secure airport proximity.</p>
+              <a href="#" class="btn btn-service-action" data-wa="Hello Suola Logistics, I need a hotel reservation in Lagos.">
+                <svg class="btn-icon" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M2 4v16M2 8h18a2 2 0 0 1 2 2v10M2 17h20M6 8v9"/>
+                </svg>
+                <span>Reserve Airport Room</span>
+                <svg class="btn-icon-right" viewBox="0 0 24 24" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M5 12h14M12 5l7 7-7 7"/>
+                </svg>
+              </a>
+            </div>
+          </article>
+
+          <!-- 5: VIP Protocol -->
+          <article class="service-item">
+            <div class="service-img-wrapper">
+              <img src="protocol.jpg" alt="VIP Airport Protocol officer escorting passenger through terminal" width="400" height="240" loading="lazy">
+            </div>
+            <div class="service-body">
+              <h3>Airport Protocol</h3>
+              <p>Curbside greeting, heavy luggage porterage, and fast-track navigation through the MM2 departure hall. Ideal for families and corporate executives.</p>
+              <a href="#" class="btn btn-service-action" data-wa="Hello Suola Logistics, I need airport protocol assistance at MM2.">
+                <svg class="btn-icon" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                </svg>
+                <span>Arrange Fast-Track Escort</span>
+                <svg class="btn-icon-right" viewBox="0 0 24 24" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M5 12h14M12 5l7 7-7 7"/>
+                </svg>
+              </a>
+            </div>
+          </article>
+        </div>
       </div>
-      <p class="font-semibold text-white text-lg mb-2">SUOLA LOGISTICS</p>
-      <p class="text-sm mb-4">Cargo | Flight Ticketing | Car hiring | Hotel Reservation | Airport Services</p>
-      <p class="text-sm">© 2026 Suola Logistics. All rights reserved. Based at MM2 Local Airport, Lagos.</p>
-      <p class="text-xs mt-4 opacity-70">CEO: Dolapo Adeniyi</p>
+    </section>
+
+    <!-- ============ LOCATION & DESK PRESENCE ============ -->
+    <section class="section" id="location">
+      <div class="container location-grid">
+        <div>
+          <span class="badge-tag">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/>
+              <circle cx="12" cy="10" r="3"/>
+            </svg>
+            Physical Desk
+          </span>
+          <h2>On the ground at MM2 Airport.</h2>
+          <p class="lead" style="margin-bottom: 20px;">
+            We aren't a faceless online booking engine. Suola Logistics operates directly from the First Floor Departure Hall inside Murtala Muhammed Airport Terminal 2 (MM2), Ikeja, Lagos.
+          </p>
+          <p style="color: var(--text-body);">
+            Led by CEO <strong>Dolapo Adeniyi</strong>, our on-floor desk team is available every day to assist travelers in person with urgent ticket changes, same-day cargo drops, and arrival meet-and-greets.
+          </p>
+        </div>
+
+        <div class="location-details-box">
+          <h3>MM2 Counter Information</h3>
+          <div class="contact-rows">
+            <div class="contact-row">
+              <span>Location</span>
+              <span>MM2 Terminal 2, First Floor, Departure Hall</span>
+            </div>
+            <div class="contact-row">
+              <span>Desk Phone</span>
+              <a href="tel:+2347026518719">
+                <svg class="contact-row-icon" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+                </svg>
+                +234 702 651 8719
+              </a>
+            </div>
+            <div class="contact-row">
+              <span>Mobile Line</span>
+              <a href="tel:+2348183496501">
+                <svg class="contact-row-icon" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+                </svg>
+                +234 818 349 6501
+              </a>
+            </div>
+            <div class="contact-row">
+              <span>WhatsApp</span>
+              <a href="https://wa.me/2347026518719" target="_blank" rel="noopener">
+                <svg class="contact-row-icon" viewBox="0 0 24 24" fill="currentColor" stroke="none" aria-hidden="true">
+                  <path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.6-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.3.5-.4.4c-.1.1-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.3 2.4 1.5.3.1.5.1.6-.1l.9-1c.2-.3.4-.2.6-.1l1.9.9c.3.1.5.2.5.3.1.2.1.7-.1 1.3Z"/>
+                </svg>
+                Chat with Desk Team
+              </a>
+            </div>
+            <div class="contact-row">
+              <span>Email</span>
+              <a href="mailto:suolalogistics4@gmail.com">
+                <svg class="contact-row-icon" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <rect width="20" height="16" x="2" y="4" rx="2"/>
+                  <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+                </svg>
+                suolalogistics4@gmail.com
+              </a>
+            </div>
+            <div class="contact-row">
+              <span>Operating Hours</span>
+              <span>06:00 – 21:00 Daily</span>
+            </div>
+          </div>
+
+          <!-- Action Buttons with Dedicated Icons (Google Maps Pin + Phone) -->
+          <div class="location-actions">
+            <a href="https://maps.google.com/?q=MM2+Local+Airport+Terminal+2+Lagos" target="_blank" rel="noopener noreferrer" class="btn btn-ghost btn-sm" id="btn-google-maps">
+              <svg class="btn-icon" viewBox="0 0 24 24" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/>
+                <circle cx="12" cy="10" r="3"/>
+              </svg>
+              <span>Open in Google Maps</span>
+            </a>
+
+            <button type="button" class="btn btn-ghost btn-sm" id="btn-copy-address" title="Copy exact terminal address">
+              <svg class="btn-icon icon-copy-default" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect width="14" height="14" x="8" y="8" rx="2" ry="2"/>
+                <path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/>
+              </svg>
+              <svg class="btn-icon icon-copy-success" viewBox="0 0 24 24" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display: none; stroke: #22c55e;">
+                <polyline points="20 6 9 17 4 12"/>
+              </svg>
+              <span id="copy-label">Copy Address</span>
+            </button>
+
+            <a href="tel:+2347026518719" class="btn btn-primary btn-sm" id="btn-call-desk">
+              <svg class="btn-icon" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+              </svg>
+              <span>Call 0702 651 8719</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ FAQ (CLEAN & MINIMALIST) ============ -->
+    <section class="section" id="faq">
+      <div class="container narrow">
+        <div class="section-head" style="text-align: center; margin-inline: auto;">
+          <span class="badge-tag">FAQ</span>
+          <h2>Questions travelers ask us.</h2>
+        </div>
+
+        <div class="faq-list">
+          <details class="faq-entry" open>
+            <summary>Does Suola own the airlines, cargo planes, or transfer cars?</summary>
+            <div class="faq-content">
+              No. We are an on-the-ground concierge and connector. We coordinate, negotiate, and verify your bookings across licensed commercial airlines (Air Peace, Ibom, Overland), freight handlers, and private chauffeurs. The physical flights and transportation are delivered by those licensed providers under their standard conditions.
+            </div>
+          </details>
+
+          <details class="faq-entry">
+            <summary>How do payments work?</summary>
+            <div class="faq-content">
+              We provide a 100% transparent, final price on WhatsApp before you pay. You can settle via verified bank transfer or physically at our MM2 First Floor desk via POS or cash. Official receipts and partner itineraries are issued immediately.
+            </div>
+          </details>
+
+          <details class="faq-entry">
+            <summary>What happens if an airline delays or cancels my flight?</summary>
+            <div class="faq-content">
+              Because we are physically on the departure floor, we liaise directly with airline duty managers. If one airline cancels, we immediately present flight options on competing carriers to get you to your destination without getting stranded.
+            </div>
+          </details>
+
+          <details class="faq-entry">
+            <summary>How fast does air cargo travel?</summary>
+            <div class="faq-content">
+              Parcels dropped at our MM2 First Floor desk before 10:00 AM generally travel on scheduled afternoon flights, arriving in Abuja, Port Harcourt, or Kano the very same day.
+            </div>
+          </details>
+        </div>
+
+        <!-- FAQ Assistance Card with Action Buttons & Icons -->
+        <div class="faq-assistance-box">
+          <div class="faq-assistance-copy">
+            <h4>Have another question about your flight or luggage?</h4>
+            <p>Our MM2 floor team responds in real time during airport flight hours (06:00 – 21:00).</p>
+          </div>
+          <div class="faq-assistance-actions">
+            <a href="https://wa.me/2347026518719" target="_blank" rel="noopener noreferrer" class="btn btn-wa btn-sm">
+              <svg class="btn-icon btn-icon-wa" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.6-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.3.5-.4.4c-.1.1-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.3 2.4 1.5.3.1.5.1.6-.1l.9-1c.2-.3.4-.2.6-.1l1.9.9c.3.1.5.2.5.3.1.2.1.7-.1 1.3Z"/>
+              </svg>
+              <span>Ask Desk on WhatsApp</span>
+            </a>
+            <a href="tel:+2347026518719" class="btn btn-ghost btn-sm">
+              <svg class="btn-icon" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+              </svg>
+              <span>Call Desk Directly</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div>
+          <strong style="color: var(--text-title); font-size: 0.95rem;">Suola Logistics</strong>
+          <p style="margin: 4px 0 0; font-size: 0.8rem;">MM2 Local Airport, First Floor, Departure Hall, Ikeja, Lagos.</p>
+        </div>
+
+        <div class="footer-links">
+          <a href="tel:+2347026518719">
+            <svg class="contact-row-icon" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+            </svg>
+            +234 702 651 8719
+          </a>
+          <a href="https://wa.me/2347026518719" target="_blank" rel="noopener">
+            <svg class="contact-row-icon" viewBox="0 0 24 24" fill="currentColor" stroke="none" aria-hidden="true">
+              <path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.6-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.3.5-.4.4c-.1.1-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.3 2.4 1.5.3.1.5.1.6-.1l.9-1c.2-.3.4-.2.6-.1l1.9.9c.3.1.5.2.5.3.1.2.1.7-.1 1.3Z"/>
+            </svg>
+            WhatsApp
+          </a>
+          <a href="mailto:suolalogistics4@gmail.com">
+            <svg class="contact-row-icon" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <rect width="20" height="16" x="2" y="4" rx="2"/>
+              <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+            </svg>
+            Email
+          </a>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p style="margin: 0; max-width: 600px;">
+          Suola Logistics arranges and coordinates bookings. Physical transportation and lodging services are provided by independent licensed partners under their own terms.
+        </p>
+        <p style="margin: 0;">© <span id="year">2026</span> Suola Logistics · CEO Dolapo Adeniyi</p>
+      </div>
     </div>
   </footer>
 
-  <script>
-    function showTab(tab) {
-      document.querySelectorAll('.form-panel').forEach(p => p.classList.add('hidden'));
-      document.querySelectorAll('.tab-btn').forEach(b => {
-        b.classList.remove('tab-active', 'bg-white', 'border');
-        b.classList.add('bg-white', 'border');
-      });
-      document.getElementById('form-' + tab).classList.remove('hidden');
-      const activeBtn = document.getElementById('tab-' + tab);
-      activeBtn.classList.add('tab-active');
-      activeBtn.classList.remove('bg-white', 'border');
-      document.getElementById('success-message').classList.add('hidden');
-    }
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
-    function handleSubmit(e, type) {
-      e.preventDefault();
-      // In production, send to email/WhatsApp/backend. For demo:
-      document.getElementById('success-message').classList.remove('hidden');
-      e.target.reset();
-      // Optional: open WhatsApp with prefilled message
-      // window.open('https://wa.me/2347026518719?text=Hello Suola Logistics, I have a ' + type + ' request.', '_blank');
-      setTimeout(() => {
-        document.getElementById('success-message').scrollIntoView({ behavior: 'smooth', block: 'center' });
-      }, 100);
-    }
+  <!-- Floating Back to Top Button with Upward Arrow Icon -->
+  <button type="button" class="btn-back-to-top" id="btn-back-to-top" aria-label="Scroll back to top" title="Back to top">
+    <svg viewBox="0 0 24 24" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <path d="m18 15-6-6-6 6"/>
+    </svg>
+  </button>
 
-    // Set default tab
-    showTab('flight');
-  </script>
+  <script src="app.js"></script>
 </body>
 </html>
